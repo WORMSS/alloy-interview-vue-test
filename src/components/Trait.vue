@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { TraitModel } from '@/models/TraitModel'
+import type { TraitModel } from '@/models/TraitModel'
 import { defineComponent, PropType } from 'vue'
 
 export default defineComponent({

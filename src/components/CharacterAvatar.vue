@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { CharacterModel } from '@/models/CharacterModel'
+import type { CharacterModel } from '@/models/CharacterModel'
 import { computed, ComputedRef, defineComponent, PropType } from 'vue'
 
 export default defineComponent({
