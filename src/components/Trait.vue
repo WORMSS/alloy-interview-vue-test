@@ -1,19 +1,35 @@
 <template>
-  <div class="trait">
-    {{ trait.type }}
-  </div>
+  <TraitSpeed v-if="isSpeed" :trait="trait" />
+  <TraitStrength v-else-if="isStrength" :trait="trait" />
+  <template v-else>
+    <div class="trait">
+      {{ trait.type }}
+    </div>
+  </template>
 </template>
 
 <script lang="ts">
+import TraitSpeed from './TraitSpeed.vue'
+import TraitStrength from './TraitStrength.vue'
 import type { TraitModel } from '@/models/TraitModel'
-import { defineComponent, PropType } from 'vue'
+import { TraitTypeModel } from '@/models/TraitTypeModel'
+import { computed, defineComponent, PropType } from 'vue'
 
 export default defineComponent({
   name: 'Trait',
+  components: { TraitSpeed, TraitStrength },
   props: {
     trait: {
       type: Object as PropType<TraitModel>,
       required: true
+    }
+  },
+  setup (props) {
+    const isSpeed = computed(() => props.trait.type === TraitTypeModel.Speed)
+    const isStrength = computed(() => props.trait.type === TraitTypeModel.Strength)
+    return {
+      isSpeed,
+      isStrength
     }
   }
 })
