@@ -11,6 +11,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/character/:id',
     name: 'Character',
     component: () => import('@/views/Character.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    component: () => import('@/views/NotFound.vue')
   }
 ]
 
