@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import type { StrengthTraitModel } from '@/models/StrengthTraitModel'
-import { computed, defineComponent, PropType } from 'vue'
+import { computed, ComputedRef, defineComponent, PropType } from 'vue'
 
 export default defineComponent({
   name: 'TraitStrength',
@@ -18,7 +18,7 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const strength = computed(() => {
+    const strength: ComputedRef<string> = computed(() => {
       switch (props.trait.value) {
         case 'weak': return '💪'
         case 'average': return '💪💪'

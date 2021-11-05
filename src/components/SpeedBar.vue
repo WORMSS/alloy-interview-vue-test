@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, ComputedRef, defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'SpeedBar',
@@ -16,7 +16,7 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const barStyle = computed(() => ({
+    const barStyle: ComputedRef<Record<'--percent', string>> = computed(() => ({
       '--percent': `${props.percent}%`
     }))
     return { barStyle }

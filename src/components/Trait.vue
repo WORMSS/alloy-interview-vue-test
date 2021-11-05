@@ -13,7 +13,7 @@ import TraitSpeed from './TraitSpeed.vue'
 import TraitStrength from './TraitStrength.vue'
 import type { TraitModel } from '@/models/TraitModel'
 import { TraitTypeModel } from '@/models/TraitTypeModel'
-import { computed, defineComponent, PropType } from 'vue'
+import { computed, ComputedRef, defineComponent, PropType } from 'vue'
 
 export default defineComponent({
   name: 'Trait',
@@ -25,8 +25,8 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const isSpeed = computed(() => props.trait.type === TraitTypeModel.Speed)
-    const isStrength = computed(() => props.trait.type === TraitTypeModel.Strength)
+    const isSpeed: ComputedRef<boolean> = computed(() => props.trait.type === TraitTypeModel.Speed)
+    const isStrength: ComputedRef<boolean> = computed(() => props.trait.type === TraitTypeModel.Strength)
     return {
       isSpeed,
       isStrength

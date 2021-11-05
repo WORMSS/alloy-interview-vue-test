@@ -8,7 +8,7 @@
 <script lang="ts">
 import SpeedBar from './SpeedBar.vue'
 import type { SpeedTraitModel } from '@/models/SpeedTraitModel'
-import { computed, defineComponent, PropType } from 'vue'
+import { computed, ComputedRef, defineComponent, PropType } from 'vue'
 
 export default defineComponent({
   name: 'TraitSpeed',
@@ -20,7 +20,7 @@ export default defineComponent({
     }
   },
   setup (props) {
-    const speed = computed(() => {
+    const speed: ComputedRef<number> = computed(() => {
       switch (props.trait.value) {
         case 'tortoise': return 10
         case 'goat': return 30
