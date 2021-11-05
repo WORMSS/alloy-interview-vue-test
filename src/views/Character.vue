@@ -40,6 +40,8 @@ export default defineComponent({
     const image: ComputedRef<string | null> = computed(() => character.value?.image || null)
     const traits: ComputedRef<TraitModel[]> = computed(() => character.value?.traits || [])
     const power: ComputedRef<string | null> = computed(() =>
+      // I would like to do parseFloat(calculator.calculate(character.value).toFixed(2)).toString()
+      // to get rid of the horrible long decimal places.
       character.value ? calculator.calculate(character.value).toString() : null
     )
 

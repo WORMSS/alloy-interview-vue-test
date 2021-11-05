@@ -5,9 +5,11 @@ import type { StrengthTraitModel } from '@/models/StrengthTraitModel'
 
 export class CharacterPowerCalculator {
   public calculate (character: CharacterModel): number {
+    // 1 so it doesn't drive the calculation to zero if not available
     let strength = 1
     let speed = 1
 
+    // O(n)
     for (const trait of character.traits) {
       if (TraitModelGuards.isStengthTrait(trait)) {
         strength = this.powerFromStrengthTrait(trait)
@@ -21,8 +23,7 @@ export class CharacterPowerCalculator {
 
     const power: number = ((speed * strength) / 176400) * 9000
 
-    // floor the value because stupid rounding issues
-    return Math.floor(power)
+    return power
   }
 
   private powerFromStrengthTrait (trait: StrengthTraitModel): number {
