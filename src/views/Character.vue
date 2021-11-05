@@ -1,10 +1,10 @@
 <template>
   <div class="character">
-    <LabelText label="ID" :text="routeId" />
-    <LabelText v-if="name" label="Name" :text="name" />
-    <LabelText v-if="power" label="Power" :text="power" />
-    <LabelImage v-if="image" label="Image" :image="image" />
-    <Trait v-for="trait in traits" :key="JSON.stringify(trait)" :trait="trait" />
+    <LabelText class="character__routeId" label="ID" :text="routeId" />
+    <LabelText class="character__name" v-if="name" label="Name" :text="name" />
+    <LabelText class="character__power" v-if="power" label="Power" :text="power" />
+    <LabelImage class="character__image" v-if="image" label="Image" :image="image" />
+    <Trait class="character__trait" v-for="trait in traits" :key="JSON.stringify(trait)" :trait="trait" />
   </div>
 </template>
 
